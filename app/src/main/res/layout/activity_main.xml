@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="620dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/txttitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="The Way You Look Tonight"
+                android:textSize="18sp"
+                app:layout_constraintStart_toEndOf="@+id/S1001"
+                app:layout_constraintTop_toTopOf="@+id/S1001" />
+
+            <TextView
+                android:id="@+id/txtartists1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="52dp"
+                android:text="Micheal Buble"
+                app:layout_constraintStart_toEndOf="@+id/S1001"
+                app:layout_constraintTop_toTopOf="@+id/txttitle1" />
+
+            <ImageButton
+                android:id="@+id/S1001"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:onClick="handleSelection"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/michael_buble_collection"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/S1002"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:onClick="handleSelection"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/S1001"
+                app:srcCompat="@drawable/billie_jean"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/txttitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Bille Jeans"
+                app:layout_constraintStart_toEndOf="@+id/S1002"
+                app:layout_constraintTop_toTopOf="@+id/S1002" />
+
+            <TextView
+                android:id="@+id/txtartists2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="52dp"
+                android:text="Micheal Jackson"
+                app:layout_constraintStart_toEndOf="@+id/S1002"
+                app:layout_constraintTop_toTopOf="@+id/txttitle2" />
+
+            <ImageButton
+                android:id="@+id/S1003"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:onClick="handleSelection"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/S1002"
+                app:srcCompat="@drawable/photograph"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/S1004"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:onClick="handleSelection"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/S1003"
+                app:srcCompat="@drawable/bts"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/S1005"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:onClick="handleSelection"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/S1004"
+                app:srcCompat="@drawable/brunomars1"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/S1006"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:onClick="handleSelection"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/S1005"
+                app:srcCompat="@drawable/acdc1"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <ImageButton
+                android:id="@+id/S1007"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:onClick="handleSelection"
+                android:scaleType="centerCrop"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/S1006"
+                app:srcCompat="@drawable/backstreet1"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <TextView
+                android:id="@+id/txttitle3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Photograph"
+                app:layout_constraintStart_toEndOf="@+id/S1003"
+                app:layout_constraintTop_toTopOf="@+id/S1003" />
+
+            <TextView
+                android:id="@+id/txtartists3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="52dp"
+                android:text="Ed Sheeran"
+                app:layout_constraintStart_toEndOf="@+id/S1003"
+                app:layout_constraintTop_toTopOf="@+id/txttitle3" />
+
+            <TextView
+                android:id="@+id/txttitle4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Dynamite"
+                app:layout_constraintStart_toEndOf="@+id/S1004"
+                app:layout_constraintTop_toTopOf="@+id/S1004" />
+
+            <TextView
+                android:id="@+id/txtartists4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="52dp"
+                android:text="BTS"
+                app:layout_constraintStart_toEndOf="@+id/S1004"
+                app:layout_constraintTop_toTopOf="@+id/txttitle4" />
+
+            <TextView
+                android:id="@+id/txttitle5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Just The Way You Are"
+                app:layout_constraintStart_toEndOf="@+id/S1005"
+                app:layout_constraintTop_toTopOf="@+id/S1005" />
+
+            <TextView
+                android:id="@+id/txtartists5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="52dp"
+                android:text="Bruno Mars"
+                app:layout_constraintStart_toEndOf="@+id/S1005"
+                app:layout_constraintTop_toTopOf="@+id/txttitle5" />
+
+            <TextView
+                android:id="@+id/txttitle6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="Highway To Hell"
+                app:layout_constraintStart_toEndOf="@+id/S1006"
+                app:layout_constraintTop_toTopOf="@+id/S1006" />
+
+            <TextView
+                android:id="@+id/txtartists6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="52dp"
+                android:text="AC/DC"
+                app:layout_constraintStart_toEndOf="@+id/S1006"
+                app:layout_constraintTop_toTopOf="@+id/txttitle6" />
+
+            <TextView
+                android:id="@+id/txttitle7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="I Want it That Way"
+                app:layout_constraintStart_toEndOf="@+id/S1007"
+                app:layout_constraintTop_toTopOf="@+id/S1007" />
+
+            <TextView
+                android:id="@+id/txtartists7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="52dp"
+                android:text="Backstreet Boys"
+                app:layout_constraintStart_toEndOf="@+id/S1007"
+                app:layout_constraintTop_toTopOf="@+id/txttitle7" />
+
+            <ImageView
+                android:id="@+id/add1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:contentDescription="S1001"
+                android:onClick="addToFavourite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/S1001"
+                app:srcCompat="@drawable/add" />
+
+            <ImageView
+                android:id="@+id/add2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="S1002"
+                android:onClick="addToFavourite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/S1002"
+                app:srcCompat="@drawable/add" />
+
+            <ImageView
+                android:id="@+id/add3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="S1003"
+                android:onClick="addToFavourite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/S1003"
+                app:srcCompat="@drawable/add" />
+
+            <ImageView
+                android:id="@+id/add4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="S1004"
+                android:onClick="addToFavourite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/S1004"
+                app:srcCompat="@drawable/add" />
+
+            <ImageView
+                android:id="@+id/add5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="S1005"
+                android:onClick="addToFavourite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/S1005"
+                app:srcCompat="@drawable/add" />
+
+            <ImageView
+                android:id="@+id/add6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="S1006"
+                android:onClick="addToFavourite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/S1006"
+                app:srcCompat="@drawable/add" />
+
+            <ImageView
+                android:id="@+id/add7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:contentDescription="S1007"
+                android:onClick="addToFavourite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/S1007"
+                app:srcCompat="@drawable/add" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:onClick="gotoFavouriteActivity"
+        android:text="View Favourite List"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
