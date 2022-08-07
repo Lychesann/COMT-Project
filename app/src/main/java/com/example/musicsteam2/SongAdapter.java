@@ -63,12 +63,12 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
             @Override
             protected FilterResults performFiltering(CharSequence constraint) {
                 String charString =constraint.toString();
-                if (charString.isEmpty()){
+                if (charString.isEmpty()){// When the user did not type in the search bar,
                     songsFiltered=songs;
                 } else {
                     List<Song>filteredList = new ArrayList<Song>();
                     for (int i = 0; i < songs.size(); i++) {
-                        if (songs.get(i).getTitle().toLowerCase().contains(charString.toLowerCase())){
+                        if (songs.get(i).getTitle().toLowerCase().contains(charString.toLowerCase())){// We dont know if the user is going to type it in upper case or lower case to search the song
                             filteredList.add(songs.get(i));
                         }
                     }
@@ -81,7 +81,7 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
 
             @Override
             protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
-                songsFiltered= (List<Song>) filterResults.values;
+                songsFiltered= (List<Song>) filterResults.values;// when the characters match the song name, it will filter the ones that match it
                 notifyDataSetChanged();
 
             }
