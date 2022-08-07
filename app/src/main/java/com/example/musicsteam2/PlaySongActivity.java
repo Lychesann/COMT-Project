@@ -56,12 +56,6 @@ public class PlaySongActivity extends AppCompatActivity {
 
         seekBar = findViewById(R.id.seekBar);
         seekBar.setMax(player.getDuration());
-        new Timer().scheduleAtFixedRate(new TimerTask() {//This would make the seekbar to start when the song starts playing
-            @Override
-            public void run() {
-                seekBar.setProgress(player.getCurrentPosition());
-            }
-        }, 0, 1000);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -118,6 +112,8 @@ public class PlaySongActivity extends AppCompatActivity {
             player.setDataSource(songUrl);
             player.prepare();
             player.start();
+            handler.removeCallbacks(p_bar);
+            handler.postDelayed(p_bar, 1000);
             gracefullyStopsWhenMusicEnds();
             btnPlayPause.setBackgroundResource(R.drawable.pause1);
             setTitle(title);
@@ -146,16 +142,17 @@ public class PlaySongActivity extends AppCompatActivity {
     private void gracefullyStopsWhenMusicEnds() {
         player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
-            public void onCompletion(MediaPlayer mp) {
+            public void onCompletion(MediaPlayer MediaPlayer) {
                 Toast.makeText(getBaseContext(), "The Song has ended and the the onCompletionListener is activated\n" + "The button text is changed to 'PLAY ", Toast.LENGTH_LONG).show();
 
                 if (repeatFlag){
                     playOrPauseMusic(null);
-                }else {
+                }else
+                {
                     currentIndex = songCollection.getNextSong(currentIndex);
                     displaySongBasedOnIndex();
-                    player.reset();
-                    btnPlayPause.setBackgroundResource(R.drawable.play);
+                    playSong(fileLink);
+                    btnPlayPause.setBackgroundResource(R.drawable.pause1);
                 }
             }
         });

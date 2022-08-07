@@ -22,21 +22,21 @@ public class FavouriteActivity extends AppCompatActivity {
         songAdapter = new SongAdapter(MainActivity.favList);//since favlist is static it can be called in the Fav activity code
         favList.setAdapter(songAdapter);
         favList.setLayoutManager(new LinearLayoutManager(this));// can be used to determined if the songs in fav list is placed Vertically or Horizontally
-        //SearchView searchView = findViewById(R.id.searchView);
-        //searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            //@Override
-            //public boolean onQueryTextSubmit(String query) {
-                //return false;
+        SearchView searchView = findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
             }
 
-            //@Override
-            //public boolean onQueryTextChange(String newText) {
-                //songAdapter.getFilter(newText);
-                //return false;//
-            //}
-        //});
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                songAdapter.getFilter(newText);
+                return false;
+            }
+        });
 
-    //}
+    }
 
     public void removeAll(View view) {
         MainActivity.favList.clear();

@@ -87,4 +87,7 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
             }
         };
     }
+
+    public void getFilter(String newText) {
+    }
 }
