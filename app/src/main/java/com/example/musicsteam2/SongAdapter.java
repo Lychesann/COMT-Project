@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
-public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filterable {
+public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filterable {// In the recycledView it is able to filter out the songs based on the characters used by the user
     private List<Song> songs;
     Context context;
     private List<Song>songsFiltered;
@@ -27,8 +27,8 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
     @Override
     public MyView onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context = parent.getContext();
-        LayoutInflater inflater = LayoutInflater.from(context);
-        View songView = inflater.inflate(R.layout.item_song, parent, false);
+        LayoutInflater inflater = LayoutInflater.from(context);//To view the favlist songs
+        View songView = inflater.inflate(R.layout.item_song, parent, false);//To view the favlist songs
         MyView viewHolder = new MyView(songView);
         return viewHolder;
     }
@@ -46,7 +46,7 @@ public class SongAdapter extends RecyclerView.Adapter<MyView> implements Filtera
         holder.removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.favList.remove(position);
+                MainActivity.favList.remove(position);// when the remove button is clicked next to the song in the fav list, it will be deleted
                 notifyDataSetChanged();
             }
         });

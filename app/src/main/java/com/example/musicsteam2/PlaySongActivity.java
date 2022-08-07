@@ -38,8 +38,8 @@ public class PlaySongActivity extends AppCompatActivity {
     boolean repeatFlag = false;
     boolean shuffleFlag = false;
     private SongCollection songCollection = new SongCollection();
-    private SongCollection originalSongCollection = new SongCollection();
-    List<Song> shuffleList = Arrays.asList(songCollection.songs);
+    private SongCollection originalSongCollection = new SongCollection();//Original sequence of the songs before shuffle is on
+    List<Song> shuffleList = Arrays.asList(songCollection.songs);// mixed sequence of the songs after shuffle is on
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,6 +55,13 @@ public class PlaySongActivity extends AppCompatActivity {
         playSong(fileLink);
 
         seekBar = findViewById(R.id.seekBar);
+        seekBar.setMax(player.getDuration());
+        new Timer().scheduleAtFixedRate(new TimerTask() {//This would make the seekbar to start when the song starts playing
+            @Override
+            public void run() {
+                seekBar.setProgress(player.getCurrentPosition());
+            }
+        }, 0, 1000);
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
@@ -72,14 +79,6 @@ public class PlaySongActivity extends AppCompatActivity {
 
             }
         });
-
-        seekBar.setMax(player.getDuration());
-        new Timer().scheduleAtFixedRate(new TimerTask() {
-            @Override
-            public void run() {
-                seekBar.setProgress(player.getCurrentPosition());
-            }
-        }, 0, 1000);
     }
 
     Runnable p_bar = new Runnable() {
@@ -88,7 +87,6 @@ public class PlaySongActivity extends AppCompatActivity {
             if (player != null && player.isPlaying())
             {
                 seekBar.setProgress(player.getCurrentPosition());
-                Log.d("temasek", "Running");
             } handler.postDelayed(this, 1000);
         }
     };
@@ -123,6 +121,7 @@ public class PlaySongActivity extends AppCompatActivity {
             gracefullyStopsWhenMusicEnds();
             btnPlayPause.setBackgroundResource(R.drawable.pause1);
             setTitle(title);
+
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -130,7 +129,8 @@ public class PlaySongActivity extends AppCompatActivity {
 
     public void playOrPauseMusic(View view) {
         if (player.isPlaying()) {
-            player.pause();seekBar.setMax(player.getDuration());
+            player.pause();
+            seekBar.setMax(player.getDuration());
             handler.removeCallbacks(p_bar);
             handler.postDelayed(p_bar,1000);
             btnPlayPause.setBackgroundResource(R.drawable.play);
@@ -176,23 +176,23 @@ public class PlaySongActivity extends AppCompatActivity {
         playSong(fileLink);
     }
     public void repeatSong(View view) {
-        if (repeatFlag) {
+        if (repeatFlag) {//When Repeat is clicked
             repeat.setBackgroundResource(R.drawable.repeat_off);
-        } else {
+        } else {// When repeat is on
             repeat.setBackgroundResource(R.drawable.repeat_on);
         }
         repeatFlag = !repeatFlag;
     }
 
     public void shuffleSong(View view) {
-        if (shuffleFlag) {
+        if (shuffleFlag) {// When shuffle button is clicked
             shuffle.setBackgroundResource(R.drawable.shuffle_on);
             songCollection = new SongCollection();
-        } else {
+        } else {// When shuffle button is clicked again
             shuffle.setBackgroundResource(R.drawable.shuffle_off);
             Collections.shuffle(shuffleList);
             shuffleList.toArray(songCollection.songs);
-        }
+        }// these 2 codes is when the shuffle is off, the songs will go back into their original sequence
         shuffleFlag=!shuffleFlag;
     }
 

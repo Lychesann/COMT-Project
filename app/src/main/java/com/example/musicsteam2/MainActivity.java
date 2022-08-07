@@ -17,22 +17,22 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private SongCollection songCollection = new SongCollection();
-    static ArrayList<Song> favList = new ArrayList<Song>();
-    SharedPreferences sharedPreferences;
+    static ArrayList<Song> favList = new ArrayList<Song>(); //This is to call the method by using Main Activity instead of typing ArrayList<Song>
+    SharedPreferences sharedPreferences; // To store and retrieve data
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        sharedPreferences =getSharedPreferences("playList", MODE_PRIVATE);
+        sharedPreferences =getSharedPreferences("playList", MODE_PRIVATE); // The mode private is to make the files only accessible to me instead of others
         String albumns = sharedPreferences.getString("list", "");
         if (!albumns.equals(""))
         {
-            TypeToken<ArrayList<Song>>token = new TypeToken<ArrayList<Song>>(){};
-            Gson gson = new Gson();
+            TypeToken<ArrayList<Song>>token = new TypeToken<ArrayList<Song>>(){}; //
+            Gson gson = new Gson();// when the Gson implementation is added, this code would enable Gson library
             favList =gson.fromJson(albumns,token.getType());
-        }
+        }// These 4 codes is when if there are no songs in the favlist, it will not show any songs.
     }
 
     public void sendDataToActivity(int index) {
@@ -54,10 +54,10 @@ public class MainActivity extends AppCompatActivity {
         Song song = songCollection.searchById(songID);
         favList.add(song);
         Gson gson = new Gson();
-        String json = gson.toJson(favList);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("list", json);
-        editor.apply();
+        String json = gson.toJson(favList);//making favlist a Json String
+        SharedPreferences.Editor editor = sharedPreferences.edit();// When the songs are added to the favlist, the songs would be in the sharedpref file
+        editor.putString("list", json);// it will be found in the sharedpref file
+        editor.apply();// The string in the file will be added when this code is called
         Log.d("gson", json);
         for (int i = 0; i < favList.size(); i++) {
             Log.d("Music123", "addToFavourite"+ favList.get(i).getId());
